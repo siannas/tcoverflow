@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/comment/create', 'CommentController@create')->name('comment/create');
+Route::get('/comment', 'CommentController@index')->name('comments');

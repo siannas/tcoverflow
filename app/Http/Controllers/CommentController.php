@@ -14,7 +14,20 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        
+        foreach($comments as $key => $comment){
+            $data[] = [
+                'nomor' => $key,
+                'id_pertanyaan' => $comment->id_pertanyaan, 
+                'id_user' => $comment->id_user, 
+                'komentar' => $comment->komentar, 
+                'voter' => $comment->jumlah_vote
+            ];
+        }
+
+        return $data;
+        // dd($comments[0]->id);
     }
 
     /**
@@ -22,9 +35,19 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //dari Auth harusnya
+        $id_user = 1;
+
+        $comment = new Comment();
+        $comment->id_pertanyaan = 1;
+        $comment->id_user = $id_user;
+        $comment->komentar = $request['komentar'];
+
+        $comment->save();
+        // dd($id_user);
+        return $comment;
     }
 
     /**

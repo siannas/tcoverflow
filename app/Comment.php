@@ -10,4 +10,5 @@ class Comment extends Model
         'id_pertanyaan', 'id_user', 'komentar', 'jumlah_vote'
     ];
 
+    public $timestamps = false;
 }

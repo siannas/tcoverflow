@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->integer('id_pertanyaan')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->text('komentar');
-            $table->integer('jumlah_vote')->unsigned();
+            $table->integer('jumlah_vote')->unsigned()->default('0');
             $table->timestamp('waktu');
         });
     }
