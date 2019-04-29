@@ -51,17 +51,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Comment  $comment
@@ -78,9 +67,17 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit($id = 0)
     {
-        //
+        try{
+            $comment = Comment::find($id);
+        }
+        catch(Exception $e)
+        {
+            return 'failed';
+        }
+
+        return $comment;
     }
 
     /**
@@ -90,9 +87,21 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, $id)
     {
-        //
+        $comment = Comment::where('id', $id)->get()[0];
+       
+        if($request->has('komentar')){
+            $comment->komentar = $request->komentar;
+        }
+        
+        if($request->has('jumlah_vote')){
+            $comment->jumlah_vote = $request->jumlah_vote;
+        }
+
+        $comment->save();
+
+        return $comment;
     }
 
     /**
@@ -101,8 +110,12 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function delete(Request $request)
     {
-        //
+        $comment = Comment::find($request->id);
+
+        $comment->delete();
+
+        return 'success';
     }
 }
