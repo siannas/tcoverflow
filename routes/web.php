@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::prefix('comment')->group(function(){
+    Route::get('/', 'CommentController@index')->name('comments');
+    Route::get('create', 'CommentController@create')->name('comment/create');
+    Route::get('update/{id}', 'CommentController@update')->name('comments/update');
+    Route::get('delete', 'CommentController@delete')->name('comments/delete');
+    Route::get('edit/{id}', 'CommentController@edit')->name('comments/edit');
+});
