@@ -24,3 +24,6 @@ Route::prefix('comment')->group(function(){
     Route::get('delete', 'CommentController@delete')->name('comments/delete');
     Route::get('edit/{id}', 'CommentController@edit')->name('comments/edit');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
