@@ -17,13 +17,13 @@ class CommentController extends Controller
         $comments = Comment::all();
         
         foreach($comments as $key => $comment){
-            $data[] = [
+            $data =  array(
                 'nomor' => $key,
                 'id_pertanyaan' => $comment->id_pertanyaan, 
                 'id_user' => $comment->id_user, 
                 'komentar' => $comment->komentar, 
                 'voter' => $comment->jumlah_vote
-            ];
+            );
         }
 
         return $data;
