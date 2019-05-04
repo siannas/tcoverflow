@@ -12,9 +12,7 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
@@ -46,9 +44,16 @@ Route::get('/tes2', function(){
 Route::get('/pertanyaan','PertanyaanController@index')->name('pertanyaan');
 Route::post('/pertanyaan/store','PertanyaanController@store')->name('pertanyaan.store');
 Route::get('/pertanyaan/read/{id_pertanyaan}', 'PertanyaanController@read');
+<<<<<<< HEAD
 Route::get('/pertanyaan/tambah', 'PertanyaanController@tambah')->name('pertanyaan.tambah');
+=======
+>>>>>>> pertanyaan2
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', function () {
+        return redirect('/home');
+    });
+
 	Route::get('/artikel', 'ArtikelController@index');
 	Route::get('/buat_artikel', 'ArtikelController@buat_artikel');
 	Route::post('/post_artikel', 'ArtikelController@store')->name('post.store');
