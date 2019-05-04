@@ -13,9 +13,9 @@
                                 <h3 class="mt-2">Arief Prasetyo</h3>
                                 <p>adlasdklad@asdasd.com</p>
                                 <div class="row justify-content-center">
-                                    <a class="btn btn-primary btn-sm mr-2" data-toggle="tab" href="#menu1">Questions <strong>10</strong></a>
-                                    <a class="btn btn-warning btn-sm" data-toggle="tab" href="#menu2">Answers <strong>10</strong></a>
-                                    <a class="btn btn-success btn-sm ml-2" data-toggle="tab" href="#menu3">Articles <strong>10</strong></a>
+                                    <a class="btn btn-primary btn-sm mr-2" href="{{ url('pertanyaan') }}">Questions <strong>10</strong></a>
+                                    <a class="btn btn-warning btn-sm" href="#menu2">Answers <strong>10</strong></a>
+                                    <a class="btn btn-success btn-sm ml-2"  href="#menu3">Articles <strong>10</strong></a>
                                 </div>
                             </div>
                         </div>

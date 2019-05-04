@@ -77,7 +77,7 @@
 	            <div class="col mr-2">
 	              <div class="row no-gutters align-items-center">
 	                <div class="col-auto">
-	                	<form action="/tcoverflow/public/pertanyaan/tambah" class="inline">
+									<form action="{{route('pertanyaan.tambah')}}" class="inline">
 							<button class="float-left btn btn-success" >Tambah Pertanyaan</button>
 						</form>
 	                </div>
