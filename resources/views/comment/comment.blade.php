@@ -35,7 +35,7 @@
         <code id="code1">
         </code>
     </pre>
-    <form name="form-komen" method="POST" action="{{ route('comment.create') }}">
+    <form name="form-komen" method="POST" action="{{ route('comment.store') }}">
         @csrf
         <div class="form-group">
             <label for="komen">comment</label>
