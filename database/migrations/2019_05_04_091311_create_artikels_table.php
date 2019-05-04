@@ -17,7 +17,7 @@ class CreateArtikelsTable extends Migration
             $table->bigIncrements('id_artikel');
             $table->integer('id_user');
             $table->string('judul');
-            $table->string('isi_artikel');
+            $table->text('isi_artikel');
             $table->timestamps();
         });
     }

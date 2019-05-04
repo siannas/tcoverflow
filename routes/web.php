@@ -36,6 +36,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/artikel', 'ArtikelController@index');
 	Route::get('/buat_artikel', 'ArtikelController@buat_artikel');
 	Route::post('/post_artikel', 'ArtikelController@store')->name('post.store');
+
+	Route::get('/post/{id}/edit', 'ArtikelController@edit')->name('post.edit'); 
+	Route::patch('/post/{id}/edit', 'PostController@update')->name('post.update');
+	Route::delete('/post/{post}/delete', 'PostController@destroy')->name('post.destroy');
 	// Route::get('/looklocation/{id}','HomeController@looklocation');
 	// Route::post('/editprofile','LoginRegister@editprofile');
 });

@@ -29,6 +29,19 @@ class ArtikelController extends Controller
         $post->isi_artikel= $request->input('content');
         $post->id_user= auth()->user()->id;
         $post->save();
-    	return view('artikel.index')->with('success','Artikel berhasil dibuat');
+        $artikel=artikel::all();
+    	return view('artikel.index', compact('artikel'))->with('success','Artikel berhasil dibuat');
+    }
+
+    public function edit($id)
+    {
+    	$post= Post::find($id);
+        if($post==null){
+            return redirect('/post');
+        }
+        if($post->user_id!=auth()->user()->id_user){
+            return redirect()->back();
+        }
+    	return view('post.edit', compact('post', 'categories'));
     }
 }
