@@ -22,43 +22,28 @@
         pre{
             white-space: pre-line;
         }
+        p.voter{
+            font-size: 50px;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
 <body>
-    <a href=""><code>this is code</code>
-    </a>
-    <br>
-    <code>&lt;?php&gt;</code>
-    <br>
-    <div id="content"></div>
-    <pre>
-        <code id="code1">
-        </code>
-    </pre>
-    <form name="form-komen" method="POST" action="{{ route('comment.create')}}">
-        @csrf
-        <div class="form-group">
-            <label for="komen">comment</label>
-            <textarea name="komentar" class="form-control" id="komen" rows="10"></textarea>
+    <div class="post-layout row">
+        <div class="votecell col-auto text-center" style="margin-left: 20px;">
+            <p class="voter">0</p>
+            <p>voter</p>
         </div>
-        <button type="submit" class="btn btn-primary my-1" id="submit">Submit</button>
-    </form>
+        <div class="postcell col">
+            <div id=content></div>
+        </div>
+    </div>
 </body>
 <script src="{{ asset('js/marked.js') }}"></script>
 <script>
-$( "code" ).text( "<b>Some</b>\nnew text.");
-// $("button").click(alert(), function (e) { 
-//     e.preventDefault();
-// });
-document.getElementById("submit").addEventListener("click", function(){
-    // alert("hai");
-    var val = document.getElementById("komen").value;
-    console.log(val);
-});
 document.getElementById('content').innerHTML =
-      marked('Marked in the browser\n\nRende .................................... Rende.................................... Rende.................................... Rende......................... .................................... Rende.................................... Rende.................................... Rende............................................................................. ......red by **marked**.\n[clear everything](/demo/?text=) with a. \n\n`simple click.`');
-
+      marked('`conio.h` questions usually ask about `getch`, which corresponds roughly to the upper-level (curses) `getch`. However most of `conio.h` is lower-level, like this, and would be done using terminfo, e.g.\n\n[link](/home), tigetstr, tparm, tputs, using "civis" (cursor-invisible).\n\nand "cup" (cursor-position). Those functions are defined via <term.h>. Likely the program uses other features (and there are no useful tutorials on porting from conio.h to curses). In curses, the mentioned features would be curs_set and move. Further reading (terminfo): curses interfaces to terminfo database terminfo - terminal capability data base.');
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

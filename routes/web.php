@@ -32,6 +32,10 @@ Route::group(['prefix' => 'comment'],function(){
     Route::post('edit/{id}', 'CommentController@edit')->name('comments.edit')->middleware('auth');
 });
 
+Route::get('/tes', function(){
+    return view('answer/answer');
+})->name('tes');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
