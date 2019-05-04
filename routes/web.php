@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => 'comment'],function(){
     Route::get('/index', 'CommentController@index')->name('comments');

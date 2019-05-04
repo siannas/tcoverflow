@@ -116,15 +116,15 @@
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span">Ask question</span></a>
+          <i class="fas fa-fw fa-question"></i>
+          <span>Ask Questions</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/artikel') }}">
           <i class="fas fa-fw fa-table"></i>
-          <span>Artikel</span></a>
+          <span>Articles</span></a>
       </li>
 
       <!-- Divider -->
@@ -373,7 +373,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="{{url('/logout')}}">Logout</a>
         </div>
       </div>
     </div>
