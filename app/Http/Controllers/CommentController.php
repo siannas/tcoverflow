@@ -43,8 +43,9 @@ class CommentController extends Controller
         $id_user = Auth::id();
 
         $comment = new Comment();
-        $comment->id_pertanyaan = 1;
+        $comment->id_tanya_jawab = 1;
         $comment->id_user = $id_user;
+        $comment->flag = 1;
         $comment->komentar = $request['komentar'];
 
         $comment->save();

@@ -25,6 +25,7 @@
         }
     </style>
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
 
@@ -34,7 +35,6 @@
     <br>
     <code>&lt;?php&gt;</code>
     <br>
-    <div id="MyID"></div>
     <div id="content"></div>
     <pre>
         <code id="code1">
@@ -44,7 +44,7 @@
         @csrf
         <div class="form-group">
             <label for="komen">comment</label>
-            <textarea name="komentar" class="form-control" id="komen" rows="10"></textarea>
+            <textarea name="komentar" class="form-control" id="MyID" rows="10"></textarea>
         </div>
         <button type="submit" class="btn btn-primary my-1" id="submit">Submit</button>
     </form>
@@ -53,11 +53,6 @@
 <script>
 var simplemde = new SimpleMDE({
 	autofocus: true,
-	autosave: {
-		enabled: true,
-		uniqueId: "MyUniqueID",
-		delay: 1000,
-	},
 	blockStyles: {
 		bold: "__",
 		italic: "_"
@@ -66,7 +61,6 @@ var simplemde = new SimpleMDE({
 	forceSync: true,
 	hideIcons: ["guide", "heading"],
 	indentWithTabs: false,
-	initialValue: "Hello world!",
 	insertTexts: {
 		horizontalRule: ["", "\n\n-----\n\n"],
 		image: ["![](http://", ")"],

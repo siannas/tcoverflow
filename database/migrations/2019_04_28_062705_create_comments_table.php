@@ -19,7 +19,6 @@ class CreateCommentsTable extends Migration
             $table->integer('flag')->unsigned();
             $table->integer('id_tanya_jawab')->unsigned();
             $table->text('komentar');
-            $table->timestamp();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }

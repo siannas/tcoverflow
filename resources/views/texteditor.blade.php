@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
 <body>
-    <div id="MyID"></div>
+    <textarea name="" id="MyID" rows="10"></textarea>
 </body>
 <script>
     var simplemde = new SimpleMDE({ element: document.getElementById("MyID") });
