@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                    <form action="/tcoverflow/public/pertanyaan/" class="inline">
+                        <button class="float-right btn btn-primary" >Tanya</button>
+                    </form>
                 </div>
             </div>
         </div>
