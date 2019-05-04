@@ -179,7 +179,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="logo"><a href="https://ppdbsda.net/"><img class="logo-img" alt="JobHere" src="https://kantor.ppdbsda.net/img/favicon.ico" style="max-height: 50px; max-width: 50px;"></a></div>
+                <div class="logo">{{-- <a href=""><img class="logo-img" alt="JobHere" src="{{asset('img/depositphotos_108786780-stock-illustration-keyboard-icon-vector-illustration.jpg')}}" style="max-height: 50px; max-width: 50px;"></a> --}}</div>
             </div>
             <div class="col-lg-9 d-none d-lg-block">
                 <div class="pull-right">
@@ -232,8 +232,8 @@
 <div class="slider-area">
     <div class="preview-2">
         <div id="nivoslider" class="slides">
-            <img src="http://foto2.data.kemdikbud.go.id/getImage/20251923/18.jpg" alt="" title="#slider-1-caption1" />
-            <img src="http://foto2.data.kemdikbud.go.id/getImage/20251923/18.jpg" alt="" title="#slider-1-caption2" />
+            <img src="{{asset('img/typewriter-wallpaper-2048x1152.jpg')}}" alt="" title="#slider-1-caption1" />
+            <img src="{{asset('img/typewriter-wallpaper-2048x1152.jpg')}}" alt="" title="#slider-1-caption2" />
         </div>
         <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
             <div class="banner-content slider-1">
@@ -242,12 +242,12 @@
                         <div class="col-md-12">
                             <div class="text-content-wrapper">
                                 <div class="text-content text-center">
-                                    <h4 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s"
-                                        data-wow-delay="0s">SELAMAT DATANG DI</h4>
+                                    <h2 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s"
+                                        data-wow-delay="0s" style="font-weight:bold;">SELAMAT DATANG DI</h2>
                                     <h1 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="3s"
                                         data-wow-delay="0s" style="font-weight: bold;">TC~OverFlow</h1>
                                     <h2 class="sub-title wow bounceInRight text-white hidden-xs" data-wow-duration="3s"
-                                        data-wow-delay="1s" style="font-weight:bold;">Sak-sak e</h2>
+                                        data-wow-delay="1s" style="font-weight:bold;"></h2>
                                     <!-- <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="3s"
                                         data-wow-delay="2s">
                                         <a class="button slider-btn" href="">Tentang Dual Track</a>
@@ -266,8 +266,8 @@
                         <div class="col-md-12">
                             <div class="text-content-wrapper">
                                 <div class="text-content slide-2 text-center">
-                                    <h4 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s"
-                                        data-wow-delay="0s">SELAMAT DATANG DI</h4>
+                                    <h2 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s"
+                                        data-wow-delay="0s" style="font-weight:bold;">SELAMAT DATANG DI</h2>
                                     <h1 class="title1 wow flipInX text-white mb-16" data-wow-duration="1s"
                                         data-wow-delay="0s" style="font-weight:bold;">TC~OverFlow</h1>
                                     <h2 class="sub-title wow lightSpeedIn text-white hidden-xs" data-wow-duration="1s"
@@ -350,36 +350,16 @@
 </div>
 <!-- Working Aera End -->
                 <!--Start of Footer Widget-area-->    <footer class="footer-area">
-    <div class="footer-widget-area ptb-80 pb-sm-30 bg-secondary">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-1 col-md-5"></div>
-                <div class="col-lg-4 col-md-5">
-                    <div class="single-footer-widget">
-                        <h3 class="text-white mb-26">Hubungi Kami</h3>
-                            <span class="text-white mb-10"><a id="kontakfooter" href="https://api.whatsapp.com/send?phone=031-8921219"><i class="fa fa-phone"></i>031-8921219 </a></span>
-                            <span class="text-white mb-10"><a id="kontakfooter" href="mailto:pendidikan@sidoarjokab.go.id" target="_blank"><i class="fa fa-envelope"></i>pendidikan@sidoarjokab.go.id</a></span>
-                            <span class="text-white mb-10"><i class="fa fa-globe"></i>http://dispendik.sidoarjokab.go.id</span>
-                            <span class="text-white mb-10"><i class="fa fa-map-marker"></i><p> Jl. Pahlawan No.4, Kec.Sidoarjo Kabupaten 
-    Sidoarjo <br> Kab. Sidoarjo. Prov. Jawa Timur. 
-    Indonesia. 61213</p></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--End of Footer Widget-area-->
-    <!-- Start of Footer area -->
-    <div class="copyright-area text-center ptb-20">
+    <div class="footer-widget-area bg-secondary text-center ptb-20">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer-text">
-                        <span class="text-white block">Copyright© <a href="httpS://ppdbsda.net/">TC~OverFlow 2019</a>. All right reserved.</span>
+                        <span class="text-white block" class="font-size: 25px;">Copyright© <a href="">TC~OverFlow 2019</a>. All right reserved.</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
 </footer>
                 <!-- End of Footer area -->
