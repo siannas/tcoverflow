@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -38,7 +40,7 @@ class CommentController extends Controller
     public function create(Request $request)
     {
         //dari Auth harusnya
-        $id_user = 1;
+        $id_user = Auth::id();
 
         $comment = new Comment();
         $comment->id_pertanyaan = 1;

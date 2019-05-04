@@ -23,10 +23,10 @@ Route::group(['prefix' => 'comment'],function(){
     Route::get('/', function(){
         return view('comment/comment');
     });
-    Route::post('/', function(Request $request){
-        return $request->all();
-    })->name('comment.store')->middleware('auth');
-    Route::post('create', 'CommentController@create')->name('comment.create');
+    // Route::post('/', function(Request $request){
+    //     return $request->all();
+    // })->name('comment.store')->middleware('auth');
+    Route::post('create', 'CommentController@create')->name('comment.create')->middleware('auth');
     Route::post('update/{id}', 'CommentController@update')->name('comments.update')->middleware('auth');
     Route::delete('delete', 'CommentController@delete')->name('comments.delete')->middleware('auth');
     Route::post('edit/{id}', 'CommentController@edit')->name('comments.edit')->middleware('auth');
