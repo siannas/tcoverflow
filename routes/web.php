@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,13 +18,24 @@ Route::get('/', function () {
 
 
 
-Route::prefix('comment')->group(function(){
-    Route::get('/', 'CommentController@index')->name('comments');
-    Route::get('create', 'CommentController@create')->name('comment/create');
-    Route::get('update/{id}', 'CommentController@update')->name('comments/update');
-    Route::get('delete', 'CommentController@delete')->name('comments/delete');
-    Route::get('edit/{id}', 'CommentController@edit')->name('comments/edit');
+Route::group(['prefix' => 'comment'],function(){
+    Route::get('/index', 'CommentController@index')->name('comments');
+    Route::get('/', function(){
+        return view('comment/comment');
+    });
+    // Route::post('/', function(Request $request){
+    //     return $request->all();
+    // })->name('comment.store')->middleware('auth');
+    Route::post('create', 'CommentController@create')->name('comment.create')->middleware('auth');
+    Route::post('update/{id}', 'CommentController@update')->name('comments.update')->middleware('auth');
+    Route::delete('delete', 'CommentController@delete')->name('comments.delete')->middleware('auth');
+    Route::post('edit/{id}', 'CommentController@edit')->name('comments.edit')->middleware('auth');
 });
+
+Route::get('/tes', function(){
+    return view('answer/answer');
+})->name('tes');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
