@@ -31,6 +31,7 @@
     <br>
     <code>&lt;?php&gt;</code>
     <br>
+    <div id="content"></div>
     <pre>
         <code id="code1">
         </code>
@@ -44,8 +45,8 @@
         <button type="submit" class="btn btn-primary my-1" id="submit">Submit</button>
     </form>
 </body>
+<script src="{{ asset('js/marked.js') }}"></script>
 <script>
-
 $( "code" ).text( "<b>Some</b>\nnew text.");
 // $("button").click(alert(), function (e) { 
 //     e.preventDefault();
@@ -54,6 +55,8 @@ $( "code" ).text( "<b>Some</b>\nnew text.");
 //     // alert("hai");
 
 // });
+document.getElementById('content').innerHTML =
+      marked('# Marked in the browser\n\nRendered by **marked**.\n[clear everything](/demo/?text=) with a simple click.');
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
