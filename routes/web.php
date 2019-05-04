@@ -43,7 +43,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pertanyaan','PertanyaanController@index')->name('pertanyaan');
 Route::get('/pertanyaan/tambah', 'PertanyaanController@tambah');
 Route::post('/pertanyaan/store','PertanyaanController@store')->name('pertanyaan.store');
-Route::get('/pertanyaan/read/{id_pertanyaan}', 'PertanyaanController@read')
+Route::get('/pertanyaan/read/{id_pertanyaan}', 'PertanyaanController@read');
 
 Route::group(['middleware' => ['auth']], function() {
 	Route::get('/artikel', 'ArtikelController@index');
