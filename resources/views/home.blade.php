@@ -3,21 +3,29 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
+        <div class="col-md-10">
+            <div class="card shadow">
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    <div class="profile">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/120x120">
+                                <h3 class="mt-2">{{Auth::user()->name}}</h3>
+                                <p>{{Auth::user()->nrp}}</p>
+                                <div class="row justify-content-center">
+                                    <a class="btn btn-primary btn-sm mr-2" data-toggle="tab" href="#menu1">Questions <strong>10</strong></a>
+                                    <a class="btn btn-warning btn-sm" data-toggle="tab" href="#menu2">Answers <strong>10</strong></a>
+                                    <a class="btn btn-success btn-sm ml-2" data-toggle="tab" href="#menu3">Articles <strong>10</strong></a>
+                                </div>
+                            </div>
                         </div>
-                    @endif
-
-                    You are logged in!
-                    <form action="/tcoverflow/public/pertanyaan/" class="inline">
-                        <button class="float-right btn btn-primary" >Tanya</button>
-                    </form>
+                    </div>
+                    <hr>
+                    <div>
+                        <div id="article">
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

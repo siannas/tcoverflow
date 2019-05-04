@@ -12,11 +12,9 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => 'comment'],function(){
     Route::get('/index', 'CommentController@index')->name('comments');
@@ -46,6 +44,10 @@ Route::post('/pertanyaan/store','PertanyaanController@store')->name('pertanyaan.
 Route::get('/pertanyaan/read/{id_pertanyaan}', 'PertanyaanController@read');
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', function () {
+        return redirect('/home');
+    });
+
 	Route::get('/artikel', 'ArtikelController@index');
 	Route::get('/buat_artikel', 'ArtikelController@buat_artikel');
 	Route::post('/post_artikel', 'ArtikelController@store')->name('post.store');
