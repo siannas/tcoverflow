@@ -31,3 +31,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pertanyaan','PertanyaanController@index');
 Route::get('/pertanyaan/tambah', 'PertanyaanController@tambah');
 Route::post('/pertanyaan/store','PertanyaanController@store');
+
+Route::group(['middleware' => ['auth']], function() {
+	Route::get('/artikel', 'ArtikelController@index');
+	Route::get('/buat_artikel', 'ArtikelController@buat_artikel');
+	Route::post('/post_artikel', 'ArtikelController@store')->name('post.store');
+	// Route::get('/looklocation/{id}','HomeController@looklocation');
+	// Route::post('/editprofile','LoginRegister@editprofile');
+});
