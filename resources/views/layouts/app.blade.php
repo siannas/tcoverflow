@@ -12,12 +12,11 @@
   <title>TCOVERFLOW</title>
 
   <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css" type="text/css" media="all">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" media="all">
+  <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" type="text/css" media="all">
+  <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}" media="all">
 
   <!-- Custom styles for this template-->
-  <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}"  media="all">
-  @yield('style');
+  <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -111,8 +110,9 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="{{url('/pertanyaan')}}</i>
-          <span">Ask question</span></a>
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-question"></i>
+          <span>Ask Questions</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
@@ -263,14 +263,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
 
 </body>
 

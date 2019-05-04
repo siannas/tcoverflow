@@ -38,7 +38,8 @@ class PertanyaanController extends Controller
 			'id_user' => $request->id,
 			'judul' => $request->judul,
 			'pertanyaan' => $request->pertanyaan,
-			'upvote' => $request->upvote
+			'upvote' => $request->upvote,
+			'tag'=>$request->tag
 		]);
 		
 		return redirect('/pertanyaan');
