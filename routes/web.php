@@ -39,6 +39,9 @@ Route::get('/tes', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tes2', function(){
+    return view('texteditor');
+});
 
 Route::get('/pertanyaan','PertanyaanController@index')->name('pertanyaan');
 Route::post('/pertanyaan/store','PertanyaanController@store')->name('pertanyaan.store');
