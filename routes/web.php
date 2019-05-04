@@ -27,3 +27,7 @@ Route::prefix('comment')->group(function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/pertanyaan','PertanyaanController@index');
+Route::get('/pertanyaan/tambah', 'PertanyaanController@tambah');
+Route::post('/pertanyaan/store','PertanyaanController@store');
