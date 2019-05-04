@@ -16,10 +16,9 @@
       @endif --}}
         	<div class="card shadow">
         		<div class="card-header border-0">
-          			<h3 class="mb-0">Buat Artikel</h3>
+          			<h3 class="mb-0">Buat Pertanyaan</h3>
         		</div>
-        		
-    			<div class="col-md-10 offset-md-1 shadow-lg mb-4 mt-4" id="form-box">			
+    			<div class="offset-md-1 mb-4 mt-4">			
 				<form action="{{ route('pertanyaan.store')}}" method="post" class="" enctype="multipart/form-data">
 					{{ csrf_field()}}
 					<div class="form-group has-feedback">
