@@ -6,21 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Artikel;
+use App\Comment;
+use App\Pertanyaan;
+
 
 class PertanyaanController extends Controller
 {
     //
      public function index()
     {
-    	// mengambil data dari table pegawai
-    	$pertanyaan = DB::table('questions')->get();
- 
-    	// mengirim data pegawai ke view index
+    	$id = Auth::id();
+    	$pertanyaan = DB::table('questions')->where('id_user', $id)->get();
     	return view('/pertanyaan/index',['pertanyaan' => $pertanyaan]);
  
     }
 
-    public function tambah()
+    public function tambah(Request $request)
 	{
 	 
 		// memanggil view tambah
@@ -29,16 +31,17 @@ class PertanyaanController extends Controller
 	}
     public function store(Request $request)
 	{
-		// insert data ke table pegawai
+		
 		$request->id = Auth::id();
 		$request->upvote = 0;
 		DB::table('questions')->insert([
 			'id_user' => $request->id,
 			'judul' => $request->judul,
 			'pertanyaan' => $request->pertanyaan,
-			'upvote' => $request->upvote
+			'upvote' => $request->upvote,
+			'tag'=>$request->tag
 		]);
-		// alihkan halaman ke halaman pegawai
+		
 		return redirect('/pertanyaan');
 	 
 	}

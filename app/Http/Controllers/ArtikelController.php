@@ -12,7 +12,7 @@ class ArtikelController extends Controller
 {
     public function index()
     {
-    	$artikel=artikel::all();
+    	$artikel = Artikel::all();
     	// var_dump($artikel); return;
 		return view('artikel.index',compact('artikel'));
     }
@@ -29,8 +29,8 @@ class ArtikelController extends Controller
         $post->isi_artikel= $request->input('content');
         $post->id_user= auth()->user()->id;
         $post->save();
-        $artikel=artikel::all();
-    	return view('artikel.index', compact('artikel'))->with('success','Artikel berhasil dibuat');
+
+    	return redirect('/artikel')->with('success','Artikel berhasil dibuat');
     }
 
     public function edit($id)
