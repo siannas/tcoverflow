@@ -18,7 +18,6 @@ class CreateArtikelsTable extends Migration
             $table->integer('id_user');
             $table->string('judul');
             $table->string('isi_artikel');
-            $table->integer('upvote');
             $table->timestamps();
         });
     }

@@ -18,7 +18,6 @@ class CreateQuestionsTable extends Migration
             $table->integer('id_user');
             $table->string('judul');
             $table->string('pertanyaan');
-            $table->string('upvote');
             $table->timestamps();
         });
     }
