@@ -64,7 +64,8 @@ class ArtikelController extends Controller
 
     public function show($id_artikel)
     {
+    	$komen = comment::where('id_tanya_jawab', $id_artikel)->get();
     	$post = artikel::where('id_artikel', $id_artikel)->get();
-		return view('artikel.lihat_artikel',compact('post'));
+		return view('artikel.lihat_artikel',compact('post','komen'));
     }
 }

@@ -47,7 +47,7 @@
 		            	<div class="card mb-4 border-left-info shadow">
 			                <div class="card-header card-header-padding">
 								<a class="post-title" href="" style="font-size: 20px; font-weight: bold; text-align: text-center;">{{ $post->judul}} </a> <br>
-								<small>{{$post->id_artikel}}
+								<small>
 									{{ $post->created_at->diffForHumans()}} {{ date('F d, Y',strtotime($post->created_at)) }} at {{ date('g:ia',strtotime($post->created_at)) }} by <a href=""> {{ $nama->name }}</a>
 								</small>
 			                </div>
@@ -59,22 +59,36 @@
 								
 			                </div>
 			            </div>
-					@endforeach
+					
 					<div class="panel panel-default"><br><br>
 					<div class="panel-heading">
 						Tambahkan Komentar
 					</div><br>
 					<div class="panel-body">
-						<form action="{{-- {{route('post.comment.store',$post)}} --}}" method="POST" class="form-horizontal">
+						<form action="{{url('/komen')}}" method="POST" class="form-horizontal">
 							{{csrf_field()}}
 							<div class="form-grup">
-								<textarea name="message" id="" cols="30" rows="5" class="form-control" placeholder="Add Your Comments..."></textarea>
+								<textarea name="message" id="" cols="30" rows="5" class="form-control" placeholder="Tambahkan Komentar..."></textarea>
+								<input class="form-control" placeholder="ID" type="text" name="id" value="{{ $post->id_artikel }}" hidden>
 							</div><br>
 							<div class="form-group text-right">
 								<input type="submit" value="Submit" class="btn btn-primary">
 							</div>
 						</form>
 						<br><br>
+						@endforeach
+		        @foreach($komen as $comment)
+		        @php
+		        	$nama = App\user::find($comment->id_user);
+		        @endphp
+		              <div class="media border p-3">
+		                {{-- <img src="{{ asset('storage/'.$comment->user->avatar)}}" alt="" class="mr-3 mt-3 rounded-circle" style="width:60px;"> --}}
+		                <div class="media-body">
+		                  {{$nama->name}} {{-- - {{$comment->created_at->diffForHumans()}} --}}
+		                  <p>{{$comment->komentar}}</p>
+		                </div>
+		              </div><br>
+		            @endforeach
 						{{-- @foreach($post->comments()->get() as $comment)
 							<div class="media border p-3">
 							  <img src="{{ asset('storage/'.$comment->user->avatar)}}" alt="" class="mr-3 mt-3 rounded-circle" style="width:60px;">

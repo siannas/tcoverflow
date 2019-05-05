@@ -40,7 +40,6 @@
 						<a href="" class="btn btn-md btn-light">Batal</a>
 					</div>
 				</form>
-				
 			</div> @endforeach
         	</div>
     	</div>
