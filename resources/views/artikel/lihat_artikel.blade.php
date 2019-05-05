@@ -22,18 +22,14 @@
 		 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
 	        		<h1 class="h3 mb-0 text-gray-800"></h1>
 	     		</div>
-		     	<div class="row">       
+		     	<div class="row" hidden>       
 			    	<div class="col-xl-3 col-md-6 mb-4">
 			      		<div class="card border-left-info shadow h-100 py-2">
 			        		<div class="card-body">
 			          			<div class="row no-gutters align-items-center">
 			            			<div class="col mr-2">
 			              				<div class="row no-gutters align-items-center">
-			                				<div class="col-auto">
-			                					<form action="{{ url('/buat_artikel') }}" class="inline">
-													<button class="float-left btn btn-success" >Buat Artikel </button>
-												</form>
-			                				</div>
+			                				{{--  --}}
 						              	</div>
 						            </div>
 						     		<div class="col-auto">
@@ -44,7 +40,7 @@
 						</div>
 					</div>
 				</div>
-	    			@foreach ($artikel as $post)
+	    			@foreach ($post as $post)
 	    				@php
 							$nama = App\user::find($post->id_user);
 						@endphp
@@ -54,45 +50,42 @@
 								<small>{{$post->id_artikel}}
 									{{ $post->created_at->diffForHumans()}} {{ date('F d, Y',strtotime($post->created_at)) }} at {{ date('g:ia',strtotime($post->created_at)) }} by <a href=""> {{ $nama->name }}</a>
 								</small>
-			                		{{-- @if($post->comments()->get()->count()==1){{$post->comments()->get()->count()}} Komentar
-			                		@endif
-			                		@if($post->comments()->get()->count() > 1){{$post->comments()->get()->count()}} Komentar
-			                		@endif
-			                		@if($post->comments()->get()->count() ==null) Don't have a comment
-			                		@endif --}}
-								{{-- @if( Auth::user()->username == $post->user->username)
-									<div class="">
-										<a href="{{ route('post.edit', $post)}}">
-											<button type="submit" class="btn btn-xs btn-outline-success btn-block">Edit</button> 
-										</a><br>
-										<form class="" action="{{ route('post.destroy', $post)}}" method="post">
-											{{ csrf_field()}}
-											{{ method_field('DELETE')}}
-											<button type="submit" class="btn btn-xs btn-outline-danger btn-block">Delete</button> 
-										</form>
-									</div>
-								@endif --}}
 			                </div>
 			                <div class="card-body">
 			                    <p>
-			                    	{{ str_limit($post->isi_artikel, 300, ' ....')}} 
-			                    	<a href="{{ url('/post/'.$post->id_artikel) }}">Baca Selengkapnya</a>
+			                    	{{ $post->isi_artikel }} 
+			                    	{{-- <a href="{{ url('/post/'.$post->id_artikel) }}">Baca Selengkapnya</a> --}}
 								</p>
-								<p>
-									@if( Auth::user()->id == $post->id_user)
-									<div class="form-inline">
-										<a href="{{ url('/post/edit/'.$post->id_artikel) }}" style="margin-right: 6px;">
-											<button type="submit" class="btn btn-md btn-outline-success">Edit</button> 
-										</a><br>
-										<a href="{{ url('/post/delete/'.$post->id_artikel) }}" style="margin-right: 6px;">
-											<button type="submit" class="btn btn-md btn-outline-danger">Hapus</button> 
-										</a><br>
-									</div>
-									@endif
-								</p>
+								
 			                </div>
 			            </div>
 					@endforeach
+					<div class="panel panel-default"><br><br>
+					<div class="panel-heading">
+						Tambahkan Komentar
+					</div><br>
+					<div class="panel-body">
+						<form action="{{-- {{route('post.comment.store',$post)}} --}}" method="POST" class="form-horizontal">
+							{{csrf_field()}}
+							<div class="form-grup">
+								<textarea name="message" id="" cols="30" rows="5" class="form-control" placeholder="Add Your Comments..."></textarea>
+							</div><br>
+							<div class="form-group text-right">
+								<input type="submit" value="Submit" class="btn btn-primary">
+							</div>
+						</form>
+						<br><br>
+						{{-- @foreach($post->comments()->get() as $comment)
+							<div class="media border p-3">
+							  <img src="{{ asset('storage/'.$comment->user->avatar)}}" alt="" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+							  <div class="media-body">
+							    {{$comment->user->username}} - {{$comment->created_at->diffForHumans()}}
+							    <p>{{$comment->message}}</p>
+							  </div>
+							</div><br>
+						@endforeach --}}
+					</div>
+				</div>
 	        </div>
     	</div>
   	</div>

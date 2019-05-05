@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Artikel;
 use App\Comment;
 use DB;
-
+use Storage;
 class ArtikelController extends Controller
 {
     public function index()
@@ -33,15 +33,38 @@ class ArtikelController extends Controller
     	return redirect('/artikel')->with('success','Artikel berhasil dibuat');
     }
 
-    public function edit($id)
+    public function edit($id_artikel)
     {
-    	$post= Post::find($id);
+    	$post = artikel::where('id_artikel', $id_artikel)->get();
         if($post==null){
             return redirect('/post');
         }
-        if($post->user_id!=auth()->user()->id_user){
-            return redirect()->back();
-        }
-    	return view('post.edit', compact('post', 'categories'));
+    	return view('artikel.edit_artikel', compact('post'));
+    }
+
+    public function update(Request $r)
+	{
+		var_dump($r);return;
+		$instansi=artikel::find($r->id);
+		if($instansi==null)
+		{
+			Auth::logout();
+			return redirect('/login');
+		}
+		$instansi->nama=$r->instansi;
+		$instansi->save();
+		return redirect('/instansi')->with('message','Sukses Mengedit Instansi/Mitra');
+	}
+
+	public function delete($post)
+	{
+    	$post = artikel::where('id_artikel', $post)->delete();
+    	return redirect('/artikel')->with('danger','Artikel berhasil dihapus');
+    }
+
+    public function show($id_artikel)
+    {
+    	$post = artikel::where('id_artikel', $id_artikel)->get();
+		return view('artikel.lihat_artikel',compact('post'));
     }
 }

@@ -55,9 +55,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/buat_artikel', 'ArtikelController@buat_artikel');
 	Route::post('/post_artikel', 'ArtikelController@store')->name('post.store');
 
-	Route::get('/post/{id}/edit', 'ArtikelController@edit')->name('post.edit'); 
-	Route::patch('/post/{id}/edit', 'PostController@update')->name('post.update');
-	Route::delete('/post/{post}/delete', 'PostController@destroy')->name('post.destroy');
-	// Route::get('/looklocation/{id}','HomeController@looklocation');
-	// Route::post('/editprofile','LoginRegister@editprofile');
+	// Route::get('/hapus_admin/{id}/{pelaksanaan}','SesiController@hapus');
+
+	Route::get('/post/edit/{id_artikel}', 'ArtikelController@edit');
+	Route::post('/post/edit/', 'ArtikelController@update'); 
+	Route::get('/post/delete/{post}', 'ArtikelController@delete');
+	Route::get('/post/{post}', 'ArtikelController@show');
 });
